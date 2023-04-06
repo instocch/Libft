@@ -6,7 +6,7 @@
 /*   By: mstocche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 16:49:51 by mstocche          #+#    #+#             */
-/*   Updated: 2023/04/05 16:59:47 by mstocche         ###   ########.fr       */
+/*   Updated: 2023/04/06 14:54:12 by mstocche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	if (!lst || !new)
+		return ;
 	new->next = *lst;
 	*lst = new;
 }

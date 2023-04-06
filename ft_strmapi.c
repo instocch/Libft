@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstocche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 17:59:56 by mstocche          #+#    #+#             */
-/*   Updated: 2023/04/05 12:22:49 by mstocche         ###   ########.fr       */
+/*   Created: 2023/04/06 17:31:02 by mstocche          #+#    #+#             */
+/*   Updated: 2023/04/06 17:31:11 by mstocche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int	i;
-	char			*str;
+	char	*str;
+	size_t	i;
 
-	if (!s)
+	if (!s || !f)
+		return (NULL);
+	str = (char *)malloc(ft_strlen(s) + 1);
+	if (!str)
 		return (NULL);
 	i = 0;
-	str = (char *)malloc(sizeof(char) * (ft_strlen(s)) + 1);
-	if (str == NULL)
-		return (NULL);
-	while (s[i] != '\0')
+	while (s[i])
 	{
-		str[i] = f(i, s[i]);
+		str[i] = (f)(i, s[i]);
 		i++;
 	}
 	str[i] = '\0';
